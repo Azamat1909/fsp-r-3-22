@@ -3,7 +3,7 @@ from task97 import precedence
 from task129 import tokenizing
 from task130 import find_unary_sign
 
-operator = ['+', '-', '*', '^', '/']
+lex_operator = ['+', '-', '*', '^', '/']
 
 
 def convert_postfix(infix):
@@ -12,7 +12,7 @@ def convert_postfix(infix):
     for lex in infix:
         if lex.isnumeric():
             postfix.append(lex)
-        elif lex in operator:
+        elif lex in lex_operator:
             while operators != [] and operators[-1] != '(' and (precedence(lex) < operators[-1]):
                 postfix.append(operators.pop())
             operators.append(lex)
@@ -27,5 +27,5 @@ def convert_postfix(infix):
     return postfix
 
 
-text = input()
+text = input('Enter math expression: ')
 print(convert_postfix(find_unary_sign(tokenizing(text))))
