@@ -7,8 +7,7 @@ def find_numerals(num):
     return (numerals[num - 1])
 
 
-while __name__ == "__main__":
+if __name__ == "__main__":
     i = int(input('Enter number: '))
     if 0 < i <= 12:
         print(find_numerals(i))
-        break
